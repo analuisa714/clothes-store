@@ -5,7 +5,7 @@ from google.cloud import firestore
 st.set_page_config(layout="wide")
 
 html_code = '''
-<h1 style='color: #5b1f00'> Produtos cadastrados </h1>
+<h1 style='color: #5b1f00'> 🛒 Produtos cadastrados </h1>
 '''
 
 st.markdown(html_code, unsafe_allow_html=True)
@@ -38,16 +38,24 @@ if lista_produtos:
     colunas_ordenadas = ["ID", "Categoria", "Tamanho", "Cor", "Qtd mín", "Qtd", "Preço"]
     df = df[colunas_ordenadas]
 
-    st.markdown("""
-        <style>
-        df {
-            text-align: center;
+    # usei pra estilizar as tabelas
+    html = df.style.hide(axis='index').set_table_styles([
+        {
+            'selector': 'th',
+            'props': [
+                ('background-color', '#e1bd96'),
+                ('font-weight', 'bold'),
+                ('text-align', 'center'),
+                ('font-size', '22px')
+            ]
+        },
+        {
+            'selector': 'td',
+            'props': [('font-size', '20px')]
         }
-        </style>
-        """, unsafe_allow_html=True)
+    ]).set_properties(**{'text-align': 'center'}).to_html()
 
-
-    st.dataframe(df, use_container_width=True, hide_index=True, width="stretch")
+    st.markdown(html, unsafe_allow_html=True)
 
 else:
     st.info("Nenhum produto cadastrado ainda.")

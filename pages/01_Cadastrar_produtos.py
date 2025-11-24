@@ -3,7 +3,7 @@ from google.cloud import firestore
 
 
 html_code = '''
-<h1 style='color: #5b1f00'> Cadastro de produto </h1>
+<h1 style='color: #5b1f00'> 📝 Cadastro de produto </h1>
 '''
 
 st.markdown(html_code, unsafe_allow_html=True)
