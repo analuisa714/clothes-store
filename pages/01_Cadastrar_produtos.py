@@ -32,7 +32,6 @@ with col2:
         qtdade_min = st.number_input("Quantidade mínima: ", step=1)
         qtdade = st.number_input("Quantidade total em estoque: ", step=1)
         preco = st.number_input("Preço: ", placeholder="Digite o preço desse produto em reais...", min_value=0.0, step=0.01)
-        # img = st.file_uploader("Anexe um foto da peça aqui")
         btn_cad_prod = st.form_submit_button("Cadastrar", use_container_width=True)
 
         if btn_cad_prod:

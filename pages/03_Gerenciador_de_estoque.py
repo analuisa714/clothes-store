@@ -13,7 +13,6 @@ st.markdown("---")
 optionMenu = option_menu(
     menu_title="O que você deseja fazer?",
     options=['🗑️ Excluir um item', '✍🏻 Alterar informações de um item'],
-    icons=['flashlight', 'ghost'],
     menu_icon='none',
     default_index=0, 
     orientation='horizontal',
@@ -33,7 +32,6 @@ optionMenu = option_menu(
 
 col1, col2, col3 = st.columns([1, 5, 1])
 db = firestore.Client.from_service_account_json("firebase.json")
-prods = db.collection("produto").stream()
 
 with col2: 
     if optionMenu == '🗑️ Excluir um item':
@@ -48,7 +46,6 @@ with col2:
                     st.success('Produto excluído com sucesso')
 
 tam_opcoes = ['PP', 'P', 'M', 'G', 'XG']
-categoria_opcoes = ['Blusa - manga curta', 'Blusa - Manga longa', 'T-Shirt', 'Cropped', 'Saia', 'Shorts', 'Macacão', 'Macaquinho', 'Calça', 'Vestido', '']
 info_opcoes = ['Tamanho', 'Cor', 'Quantidade mínima', 'Preço']
 
 
